@@ -27,6 +27,10 @@
   <artifactId>tomitribe-crest-xbean</artifactId>
   <name>Tomitribe :: Crest :: XBean Finder Scanning</name>
 
+  <properties>
+    <crest.build.name>${project.groupId}.crest.xbean</crest.build.name>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.tomitribe</groupId>
@@ -39,11 +43,6 @@
       <artifactId>tomitribe-crest-api</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>org.apache.xbean</groupId>
-      <artifactId>xbean-asm5-shaded</artifactId>
     </dependency>
 
     <dependency>

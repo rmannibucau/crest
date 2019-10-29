@@ -51,6 +51,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.checkstyle.plugin.version>2.17</maven.checkstyle.plugin.version>
+    <crest.build.name>${project.groupId}</crest.build.name>
     <xbean.version>4.15</xbean.version>
   </properties>
 
@@ -80,7 +81,7 @@
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.11</version>
+        <version>4.12</version>
         <scope>test</scope>
       </dependency>
 
@@ -104,14 +105,14 @@
       <dependency>
         <groupId>org.apache.bval</groupId>
         <artifactId>bval-jsr</artifactId>
-        <version>1.1.0</version>
-        <scope>compile</scope>
+        <version>2.0.3</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.geronimo.specs</groupId>
-        <artifactId>geronimo-validation_1.1_spec</artifactId>
-        <version>1.0-alpha-1</version>
-        <scope>compile</scope>
+        <artifactId>geronimo-validation_2.0_spec</artifactId>
+        <version>1.0</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -158,6 +159,18 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <archive combine.children="append">
+            <manifestEntries>
+              <Automatic-Module-Name>${crest.build.name}</Automatic-Module-Name>
+            </manifestEntries>
+          </archive>
+        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
